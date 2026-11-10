@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Android Smart Cleaner Pro</string>
+    <string name="app_title">پاک‌ساز هوشمند پرو</string>
+    <string name="subtitle">نمایی روشن‌تر از حافظه گوشی</string>
+    <string name="storage_title">نمای کلی حافظه</string>
+    <string name="used">استفاده‌شده</string>
+    <string name="free">در دسترس</string>
+    <string name="total">کل</string>
+    <string name="settings">ظاهر و زبان</string>
+    <string name="dark_mode">تم تاریک</string>
+    <string name="language">زبان</string>
+    <string name="scan">اسکن رسانه‌های حجیم</string>
+    <string name="smart_scan">بررسی حافظه</string>
+    <string name="scan_explanation">عکس‌ها و ویدیوهای بزرگ‌تر از ۲۰ مگابایت را پیدا کن. پیش از درخواست حذف، همه موارد را بررسی کن.</string>
+    <string name="scanning">در حال اسکن…</string>
+    <string name="scan_complete">%1$d فایل رسانه‌ای حجیم پیدا شد.</string>
+    <string name="permission_needed">برای اسکن عکس‌ها و ویدیوها دسترسی رسانه لازم است.</string>
+    <string name="large_media_title">فایل‌های رسانه‌ای حجیم</string>
+    <string name="review_before_delete">هیچ فایلی خودکار حذف نمی‌شود. ابتدا فهرست را بررسی کن.</string>
+    <string name="review_delete_action">بررسی حذف با تأیید اندروید</string>
+    <string name="delete_done">درخواست حذف توسط اندروید تأیید شد.</string>
+    <string name="delete_cancelled">حذف لغو شد یا تأیید نشد.</string>
+    <string name="delete_android_older">حذف گروهی با تأیید سیستم به اندروید ۱۱ یا جدیدتر نیاز دارد.</string>
+    <string name="limits_note">محدودیت‌ها: این برنامه به اطلاعات خصوصی برنامه‌های دیگر یا پوشه محافظت‌شده Android/data دسترسی ندارد و نمی‌تواند حذف همه بقایای برنامه‌های حذف‌شده را تضمین کند. اسکن پوشه فقط مکان‌هایی را بررسی می‌کند که با انتخاب‌گر اندروید در اختیار برنامه می‌گذارید. هیچ فایلی خودکار حذف نمی‌شود.</string>
+    <string name="media_scan_title">اسکن فایل‌های رسانه‌ای حجیم</string>
+    <string name="junk_title">اسکن فایل‌های زائد و باقی‌مانده</string>
+    <string name="junk_explanation">یک پوشه متعلق به خودتان (مثلاً Downloads) انتخاب کنید. برنامه فقط همان پوشه را برای فایل‌های شبیه موقت و پوشه‌های خالی بررسی می‌کند. ورود به Android/data یا پوشه‌های خصوصی برنامه‌های دیگر ممکن نیست.</string>
+    <string name="choose_folder_scan">انتخاب پوشه و شروع اسکن</string>
+    <string name="junk_results">بررسی موارد مشکوک به زائد بودن</string>
+    <string name="junk_select_hint">این موارد فقط پیشنهاد اسکن هستند و لزوماً زائد نیستند. فقط مواردی را انتخاب کنید که می‌شناسید و قصد حذفشان را دارید.</string>
+    <string name="junk_scan_complete">در پوشه انتخاب‌شده %1$d مورد احتمالی پیدا شد.</string>
+    <string name="folder_scan_error">اسکن پوشه انجام نشد. مجوز پوشه را بررسی و دوباره تلاش کنید.</string>
+    <string name="select_delete_hint">فقط فایل‌های رسانه‌ای موردنظر برای حذف را انتخاب کنید. اندروید پیش از حذف تأیید می‌گیرد.</string>
+    <string name="select_at_least_one">ابتدا دست‌کم یک مورد را انتخاب کنید.</string>
+    <string name="delete_selected_media">درخواست حذف رسانه‌ها (%1$d مورد انتخاب‌شده)</string>
+    <string name="delete_selected_junk">حذف موارد انتخاب‌شده (%1$d مورد)</string>
+    <string name="junk_deleted">تعداد %1$d مورد انتخاب‌شده حذف شد.</string>
+    <string name="cache_title">مدیریت حافظه و کش سیستم</string>
+    <string name="cache_explanation">اندروید به برنامه‌های معمولی و بدون روت اجازه نمی‌دهد کش همه برنامه‌ها را بی‌صدا پاک کنند. تنظیمات مدیریت حافظه اندروید را برای مشاهده گزینه‌های رسمی باز کنید. این دکمه تضمین نمی‌کند که کش‌ها پاک شوند.</string>
+    <string name="open_system_storage">باز کردن تنظیمات حافظه اندروید</string>
+    <string name="system_storage_unavailable">باز کردن تنظیمات حافظه اندروید ممکن نشد.</string>
+</resources>

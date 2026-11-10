@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Android Smart Cleaner Pro</string>
+    <string name="app_title">Smart Cleaner Pro</string>
+    <string name="subtitle">A clearer view of your storage</string>
+    <string name="storage_title">Storage overview</string>
+    <string name="used">Used</string>
+    <string name="free">Available</string>
+    <string name="total">Total</string>
+    <string name="settings">Appearance and language</string>
+    <string name="dark_mode">Dark theme</string>
+    <string name="language">Language</string>
+    <string name="scan">Scan large media</string>
+    <string name="smart_scan">Storage review</string>
+    <string name="scan_explanation">Find photos and videos larger than 20 MB. Review every item before asking Android to delete it.</string>
+    <string name="scanning">Scanning…</string>
+    <string name="scan_complete">Found %1$d large media items.</string>
+    <string name="permission_needed">Media access is needed to scan photos and videos.</string>
+    <string name="large_media_title">Large media files</string>
+    <string name="review_before_delete">Nothing is deleted automatically. Review the list first.</string>
+    <string name="review_delete_action">Review deletion with Android</string>
+    <string name="delete_done">Android confirmed the deletion request.</string>
+    <string name="delete_cancelled">Deletion was cancelled or not approved.</string>
+    <string name="delete_android_older">System-confirmed batch deletion requires Android 11 or newer.</string>
+    <string name="limits_note">Limits: this app cannot access other apps’ private data or protected Android/data folders, and cannot guarantee removal of every uninstall leftover. The selected-folder scanner only inspects locations you grant through Android’s folder picker. Nothing is deleted automatically.</string>
+    <string name="media_scan_title">Large media scanner</string>
+    <string name="junk_title">Junk &amp; residual scanner</string>
+    <string name="junk_explanation">Choose a folder you own (for example Downloads). The app checks only that selected folder for temporary-looking files and empty folders. It cannot enter protected Android/data or other apps’ private folders.</string>
+    <string name="choose_folder_scan">Choose folder and scan</string>
+    <string name="junk_results">Review possible junk</string>
+    <string name="junk_select_hint">These are suggestions, not guaranteed junk. Select only items you recognize and want to remove.</string>
+    <string name="junk_scan_complete">Found %1$d possible items in the chosen folder.</string>
+    <string name="folder_scan_error">Could not scan this folder. Check the folder permission and try again.</string>
+    <string name="select_delete_hint">Select only the media files you want to delete. Android will ask for confirmation.</string>
+    <string name="select_at_least_one">Select at least one item first.</string>
+    <string name="delete_selected_media">Request media deletion (%1$d selected)</string>
+    <string name="delete_selected_junk">Delete selected folder items (%1$d selected)</string>
+    <string name="junk_deleted">Deleted %1$d selected items.</string>
+    <string name="cache_title">System storage &amp; cache</string>
+    <string name="cache_explanation">Android does not let an ordinary, non-root app silently clear every app cache. Open Android’s storage manager to review system-provided cleanup options. This button does not promise that caches will be cleared.</string>
+    <string name="open_system_storage">Open Android storage settings</string>
+    <string name="system_storage_unavailable">Android storage settings could not be opened.</string>
+</resources>

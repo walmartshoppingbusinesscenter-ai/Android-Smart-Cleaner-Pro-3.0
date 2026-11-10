@@ -1,0 +1,41 @@
+
+name: Extract Android project ZIP
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract project ZIP
+        run: |
+          set -euo pipefail
+          mkdir -p extracted
+          unzip -q AndroidSmartCleanerPro-3.0.zip -d extracted
+          SETTINGS_FILE="$(find extracted -name settings.gradle.kts -print -quit)"
+          if [ -z "$SETTINGS_FILE" ]; then
+            echo "Could not find settings.gradle.kts in ZIP"
+            exit 1
+          fi
+          PROJECT_DIR="$(dirname "$SETTINGS_FILE")"
+          cp -a "$PROJECT_DIR"/. .
+          rm -rf extracted AndroidSmartCleanerPro-3.0.zip
+
+      - name: Commit extracted project
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Extract Android Smart Cleaner Pro 3.0"
+          git push

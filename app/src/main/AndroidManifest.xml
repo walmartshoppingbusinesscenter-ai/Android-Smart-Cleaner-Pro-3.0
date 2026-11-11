@@ -3,11 +3,36 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
     <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED"/>
-    <application android:allowBackup="true" android:label="@string/app_name"
-        android:icon="@drawable/ic_smart_cleaner" android:roundIcon="@drawable/ic_smart_cleaner"
-        android:supportsRtl="true" android:theme="@style/Theme.SmartCleaner">
-        <activity android:name=".MainActivity" android:exported="true">
-            <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_smart_cleaner"
+        android:roundIcon="@drawable/ic_smart_cleaner"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmartCleaner">
+        <activity android:name=".AppsActivity" android:exported="false"/>
+        <activity android:name=".SpeedBoostActivity" android:exported="false"/>
+        <activity android:name=".ResidualsActivity" android:exported="false"/>
+        <activity android:name=".CacheMonitorActivity" android:exported="false"/>
+        <activity android:name=".MainActivity" android:exported="false"/>
+        <activity android:name=".HomeActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
+        <receiver android:name=".PackageRemovedReceiver" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
     </application>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent>
+    </queries>
 </manifest>

@@ -2,6 +2,7 @@ package com.smartcleanerpro.app
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -30,7 +31,7 @@ class SettingsActivity : AppCompatActivity() {
                         listOf("System default", "Light", "Dark").forEachIndexed { index, label ->
                             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                                 Text(label)
-                                RadioButton(selected = when (index) { 0 -> !dark && prefs.getString("theme_mode", "system") == "system"; 1 -> !dark && prefs.getString("theme_mode") == "light"; else -> dark }, onClick = {
+                                RadioButton(selected = when (index) { 0 -> !dark && prefs.getString("theme_mode", "system") == "system"; 1 -> !dark && prefs.getString("theme_mode", "system") == "light"; else -> dark }, onClick = {
                                     val mode = when (index) { 0 -> "system"; 1 -> "light"; else -> "dark" }
                                     prefs.edit().putString("theme_mode", mode).putBoolean("dark_theme", mode == "dark").apply()
                                     dark = mode == "dark"

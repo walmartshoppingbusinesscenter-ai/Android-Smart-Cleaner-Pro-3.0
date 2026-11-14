@@ -11,6 +11,8 @@
         android:roundIcon="@drawable/ic_smart_cleaner"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCleaner">
+        <activity android:name=".SettingsActivity" android:exported="false"/>
+        <activity android:name=".ScheduleActivity" android:exported="false"/>
         <activity android:name=".AppsActivity" android:exported="false"/>
         <activity android:name=".SpeedBoostActivity" android:exported="false"/>
         <activity android:name=".ResidualsActivity" android:exported="false"/>

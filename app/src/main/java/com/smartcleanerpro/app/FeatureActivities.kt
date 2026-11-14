@@ -35,9 +35,8 @@ private fun openSystemSettings(activity: AppCompatActivity, action: String, uri:
 class AppsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val launcher = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)
-        val apps = packageManager.queryIntentActivities(launcher, 0).mapNotNull { result ->
-            val info = result.activityInfo?.applicationInfo ?: return@mapNotNull null
+        // Android package visibility limits this list to packages visible to this app.
+        val apps = packageManager.getInstalledApplications(0).mapNotNull { info ->
             if (info.packageName == packageName) return@mapNotNull null
             val label = runCatching { packageManager.getApplicationLabel(info).toString() }.getOrDefault(info.packageName)
             val version = runCatching {
@@ -118,17 +117,22 @@ class ResidualsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             var candidates by remember { mutableStateOf(emptyList<Candidate>()) }
-            var status by remember { mutableStateOf("Choose a folder you own, such as Downloads. Protected app folders are not accessible.") }
+            var status by remember { mutableStateOf("Choose the shared-storage root for the broadest scan, or select a specific folder. Android-protected app folders are not accessible.") }
             val picker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocumentTree()) { uri ->
                 if (uri != null) runCatching {
                     contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
                     val root = DocumentFile.fromTreeUri(this, uri)
                     val found = mutableListOf<Candidate>()
+                    val removedPackages = getSharedPreferences("uninstalled_packages", MODE_PRIVATE)
+                        .getStringSet("packages", emptySet()) ?: emptySet()
                     fun walk(dir: DocumentFile, depth: Int) {
-                        if (depth > 6) return
+                        if (depth > 12) return
                         dir.listFiles().forEach { child ->
                             if (child.isDirectory) {
-                                if (child.listFiles().isEmpty()) found += Candidate(child, "Empty folder") else walk(child, depth + 1)
+                                val folderName = child.name.orEmpty()
+                                if (folderName in removedPackages) {
+                                    found += Candidate(child, "Folder name matches a previously uninstalled app package")
+                                } else if (child.listFiles().isEmpty()) found += Candidate(child, "Empty folder") else walk(child, depth + 1)
                             } else {
                                 val name = child.name.orEmpty().lowercase(Locale.ROOT)
                                 if (listOf(".tmp", ".temp", ".bak", ".log", ".partial").any { name.endsWith(it) }) found += Candidate(child, "Temporary-looking file")

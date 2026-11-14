@@ -12,6 +12,9 @@ class PackageRemovedReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action != Intent.ACTION_PACKAGE_REMOVED || intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) return
         val packageName = intent.data?.schemeSpecificPart ?: return
+        context.getSharedPreferences("uninstalled_packages", Context.MODE_PRIVATE)
+            .edit().putStringSet("packages", (context.getSharedPreferences("uninstalled_packages", Context.MODE_PRIVATE)
+                .getStringSet("packages", emptySet()) ?: emptySet()) + packageName).apply()
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val channel = "removed_apps"
         if (Build.VERSION.SDK_INT >= 26) {
